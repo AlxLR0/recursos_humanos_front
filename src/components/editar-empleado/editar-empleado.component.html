@@ -1,0 +1,27 @@
+<div class="container col-md-6 offset-md-3">
+  <div class="card shadow border-warning">
+    <div class="card-header bg-warning text-dark">
+      <h4>Editar Empleado (ID: {{id}})</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="actualizar()">
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="empleado.nombre">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Departamento</label>
+          <input type="text" class="form-control" name="departamento" [(ngModel)]="empleado.departamento">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sueldo</label>
+          <input type="number" class="form-control" name="sueldo" [(ngModel)]="empleado.sueldo">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning me-2">Actualizar Cambios</button>
+          <button type="button" class="btn btn-secondary" routerLink="/empleados">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

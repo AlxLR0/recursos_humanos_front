@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card border-0 shadow-lg mb-4">
+    <div class="card-header">
+      <h4 class="mb-0">
+        <i class="bi bi-people-fill"></i> Listado de Empleados
+      </h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th><i class="bi bi-hash"></i> ID</th>
+              <th><i class="bi bi-person-circle"></i> Nombre</th>
+              <th><i class="bi bi-building"></i> Departamento</th>
+              <th><i class="bi bi-currency-dollar"></i> Sueldo</th>
+              <th><i class="bi bi-gear"></i> Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (emp of empleados(); track emp.idEmpleado) {
+              <tr>
+                <td>{{ emp.idEmpleado }}</td>
+                <td>{{ emp.nombre }}</td>
+                <td>{{ emp.departamento }}</td>
+                <td>{{ emp.sueldo | currency:'USD':'symbol':'1.0-0' }}</td>
+                <td>
+                  <button type="button"  class="btn btn-sm btn-primary rounded-pill m-1" title="Editar" (click)="irAEditar(emp.idEmpleado)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity="0" d="M14 6l4 4l3 -3l-4 -4Z"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.4s" to="1"/></path><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="44" stroke-dashoffset="44" d="M7 17v-4l10 -10l4 4l-10 10h-4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.5s" to="0"/></path><path stroke-dasharray="20" d="M3 21h18"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="20;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M14 6l4 4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" to="0"/></path></g></svg> 
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger rounded-pill " title="Eliminar" (click)="eliminar(emp.idEmpleado)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="24" d="M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="24;0"/></path><path stroke-dasharray="18" stroke-dashoffset="18" d="M4 5h16"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.3s" to="0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M10 4h4M10 9v7M14 9v7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" to="0"/></path></g></svg>
+                  </button>
+                </td>
+              </tr>
+            }
+            @if (empleados().length === 0) {
+              <tr>
+                <td colspan="5" class="text-center py-4">
+                  <i class="bi bi-inbox" style="font-size: 2rem;"></i>
+                  <p class="mt-3">Sin datos aún. <a routerLink="/agregar">Agregar un empleado</a></p>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

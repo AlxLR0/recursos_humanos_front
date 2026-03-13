@@ -2,6 +2,38 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
 
+## Setup
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Configure environment variables (see Environment Configuration below)
+4. Start the development server: `npm start`
+
+## Environment Configuration
+
+The application uses environment variables to configure the API endpoint.
+
+### For Development
+
+1. Copy the example environment file:
+   ```bash
+   cp src/environments/environment.example.ts src/environments/environment.local.ts
+   ```
+
+2. Edit `src/environments/environment.local.ts` and set your local API URL:
+   ```typescript
+   export const environment = {
+     production: false,
+     apiUrl: 'http://127.0.0.1:8080/api' // Your local backend URL
+   };
+   ```
+
+3. The application will automatically use `environment.local.ts` if it exists, otherwise it falls back to `environment.ts`.
+
+### For Production
+
+The production build uses `environment.prod.ts`. Update the `apiUrl` with your production API endpoint before deploying.
+
 ## Development server
 
 To start a local development server, run:

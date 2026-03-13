@@ -1,0 +1,60 @@
+<div class="container col-lg-5">
+  <div class="card border-0 shadow-lg">
+    <div class="card-header">
+      <h4 class="mb-0">
+        <i class="bi bi-person-plus-fill"></i> Nuevo Empleado
+      </h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="guardar()">
+        <div class="mb-3">
+          <label class="form-label">
+            <i class="bi bi-person-circle"></i> Nombre Completo
+          </label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="nombre" 
+            [(ngModel)]="empleado.nombre" 
+            placeholder="Ingrese el nombre completo"
+            required>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">
+            <i class="bi bi-building"></i> Departamento
+          </label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="departamento" 
+            [(ngModel)]="empleado.departamento" 
+            placeholder="Ej: Recursos Humanos"
+            required>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">
+            <i class="bi bi-currency-dollar"></i> Sueldo
+          </label>
+          <input 
+            type="number" 
+            class="form-control" 
+            name="sueldo" 
+            [(ngModel)]="empleado.sueldo" 
+            placeholder="Ingrese el sueldo"
+            required>
+        </div>
+        
+        <div class="text-center gap-2 d-flex justify-content-center pt-3">
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-check-circle"></i> Guardar Empleado
+          </button>
+          <button type="button" class="btn btn-secondary" routerLink="/empleados">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
