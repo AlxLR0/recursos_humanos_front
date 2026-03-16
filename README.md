@@ -1,91 +1,94 @@
-# RecursosHumanosFront
+# 🚀 Recursos Humanos Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+Aplicación web de ejemplo desarrollada con **Angular 19** para gestionar información básica de empleados. Incluye una interfaz moderna con navegación, formularios, y llamadas a una API REST para CRUD de empleados.
 
-## Setup
+---
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Configure environment variables (see Environment Configuration below)
-4. Start the development server: `npm start`
+## 🔍 ¿Qué hace este proyecto?
 
-## Environment Configuration
+Este frontend ofrece funcionalidades típicas de un sistema de recursos humanos ligero, como:
 
-The application uses environment variables to configure the API endpoint.
+- ✅ **Listado de empleados** (con tabla responsive y acciones de edición/eliminación)
+- ✍️ **Agregar empleados** mediante formulario validado
+- ✏️ **Editar información** de empleados usando rutas parametrizadas
+- 🗑️ **Eliminar registros** con confirmación y actualización de lista en tiempo real
+- 🔔 **Notificaciones tipo toast** para confirmar acciones (guardado, actualización, eliminación)
 
-### For Development
+El proyecto está pensado para ser un punto de partida limpio y práctico, con buenas prácticas modernas de Angular y experiencia de usuario agradable.
 
-1. Copy the example environment file:
-   ```bash
-   cp src/environments/environment.example.ts src/environments/environment.local.ts
-   ```
+---
 
-2. Edit `src/environments/environment.local.ts` and set your local API URL:
-   ```typescript
-   export const environment = {
-     production: false,
-     apiUrl: 'http://127.0.0.1:8080/api' // Your local backend URL
-   };
-   ```
+## 🧰 Tecnologías y patrones clave
 
-3. The application will automatically use `environment.local.ts` if it exists, otherwise it falls back to `environment.ts`.
+- **Angular 19** (Standalone components, Signals, ChangeDetectionStrategy.OnPush)
+- **Bootstrap 5** para estilos, grids, y componentes (navbar, toasts, botones)
+- **HttpClient** para consumir una API REST (CRUD)
+- **Arquitectura limpia** con servicios y componentes independientes
+- **Variables de entorno** para desacoplar la URL del backend y facilitar despliegues
 
-### For Production
+---
 
-The production build uses `environment.prod.ts`. Update the `apiUrl` with your production API endpoint before deploying.
+## 🗂️ Estructura relevante del proyecto
 
-## Development server
+- `src/app/` → configuración de rutas, componente principal, modelos
+- `src/components/` → vistas y formularios (lista, agregar, editar)
+- `src/servicios/` → servicios para llamadas HTTP (`empleado.service.ts`) y notificaciones (`toast.service.ts`)
+- `src/environments/` → configuración de endpoints para desarrollo y producción
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## ▶️ Cómo ejecutar el proyecto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Instala dependencias:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Configura tu backend local (opcional):
 
 ```bash
-ng generate --help
+cp src/environments/environment.example.ts src/environments/environment.local.ts
 ```
 
-## Building
+Edita `src/environments/environment.local.ts` y ajusta `apiUrl` a tu API.
 
-To build the project run:
+3. Inicia el servidor de desarrollo:
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Abre `http://localhost:4200/` en tu navegador.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🧩 Detalles de implementación importantes
+
+- Los formularios tienen `autocomplete="off"` para evitar sugerencias del navegador.
+- El `ToastService` usa toasts nativos de Bootstrap y los muestra en la esquina inferior derecha.
+- La lista usa Signals para asegurar que la UI se actualice correctamente al navegar entre rutas.
+
+---
+
+## 🛠️ Compilar para producción
 
 ```bash
-ng test
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+La build se colocará en `dist/` y usará `src/environments/environment.prod.ts`.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 🎯 Personaliza y experimenta
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Si quieres extenderlo, algunas ideas son:
 
-## Additional Resources
+- Agregar paginación/búsqueda/ordenamiento en la tabla
+- Integrar autenticación (login + token)
+- Conectar con una base de datos real en el backend
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+> Nota: Este repositorio no incluye datos sensibles ni credenciales; la conexión al backend se controla desde los archivos de configuración de entorno.

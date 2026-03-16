@@ -1,12 +1,12 @@
 <div class="container col-lg-5">
-  <div class="card border-0 shadow-lg">
+  <div class="card shadow-lg border-success">
     <div class="card-header">
       <h4 class="mb-0">
         <i class="bi bi-person-plus-fill"></i> Nuevo Empleado
       </h4>
     </div>
     <div class="card-body">
-      <form (ngSubmit)="guardar()">
+      <form autocomplete="off" (ngSubmit)="guardar()">
         <div class="mb-3">
           <label class="form-label">
             <i class="bi bi-person-circle"></i> Nombre Completo
@@ -48,7 +48,7 @@
         
         <div class="text-center gap-2 d-flex justify-content-center pt-3">
           <button type="submit" class="btn btn-success">
-            <i class="bi bi-check-circle"></i> Guardar Empleado
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" d="M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="60;0"/></path><g stroke-dasharray="12" stroke-dashoffset="12"><path d="M7 12h10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" to="0"/></path><path d="M12 7v10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" to="0"/></path></g></g></svg> Guardar Empleado
           </button>
           <button type="button" class="btn btn-secondary" routerLink="/empleados">
             <i class="bi bi-x-circle"></i> Cancelar
